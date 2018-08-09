@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="left">
+      <button type="button" (click)="addService()">create serveice</button>
+      <br/>
+      <br>
+      <button type="button" (click)="addChannel()"> create Channel</button>
+      <br/>
+      <div id="searchdiv">
+        <input type="text" placeholder="Search channel" [(ngModel)]="channel">
+    
+        <button (click)="searchChannel()">search channel</button>
+      </div>
+
+      <p>{{foundChannel}}</p><button (click)="joinChannel()">Join</button><br/>
+  </div>
+  <div class="right">
+      <br/>
+      <input type="text" placeholder="Enter message" [(ngModel)]="messages"/>
+      <button (click)="sendMessage()">Send message</button>
+  
+        <ul *ngFor="let message of allMessages">
+          <li>{{message.body}}</li>
+        </ul>
+    
+</div>
+</div>

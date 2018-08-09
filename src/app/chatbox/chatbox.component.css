@@ -1,0 +1,16 @@
+.left{
+    width:30%;
+    height:100vh;
+    float: left;
+    background-color:papayawhip;
+}
+.right{
+    width:70%;
+    height:100vh;
+    float: left;
+    background-color:palevioletred;
+    
+}
+#searchdiv{
+    margin:10px;
+}
