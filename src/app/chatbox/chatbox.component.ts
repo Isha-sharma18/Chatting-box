@@ -99,6 +99,21 @@ joinChannel(){
   })
 }
 
+//DISPLAY NEW CHANNEL 
+length;
+channelArr=[];
+Display() {
+  this.chatBox.DisplayAllChannel().subscribe(res => 
+          { 
+            this.length = res.channels.length;
+            for ( let i = 0; i < this.length; i++){ 
+            this.channelArr[i] = res.channels[i].unique_name;} 
+            }),
+            err => {
+              console.log(err);
+            }
+     } 
+
 
   ngOnInit() {
     this.viewMessage();

@@ -3,8 +3,9 @@
     height:100vh;
     float: left;
     background-color:papayawhip;
+    overflow: scroll;
 }
-.right{
+.bottom{
     width:70%;
     height:100vh;
     float: left;
@@ -13,4 +14,10 @@
 }
 #searchdiv{
     margin:10px;
+}
+
+.right {
+    position: fixed;
+    
+    bottom:0;
 }

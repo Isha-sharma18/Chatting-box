@@ -1,26 +1,41 @@
 <div class="container">
   <div class="left">
-      <button type="button" (click)="addService()">create serveice</button>
+    <button type="button" (click)="addService()">create service</button>
+    <br/>
+    <br>
+    <button type="button" (click)="addChannel()"> create Channel</button>
+    <br/>
+    <div id="searchdiv">
+      <input type="text" placeholder="Search channel" [(ngModel)]="channel">
+
+      <button (click)="searchChannel()">search channel</button>
+      <p>{{foundChannel}}</p>
+      <button (click)="joinChannel()">Join</button>
       <br/>
-      <br>
-      <button type="button" (click)="addChannel()"> create Channel</button>
-      <br/>
-      <div id="searchdiv">
-        <input type="text" placeholder="Search channel" [(ngModel)]="channel">
-    
-        <button (click)="searchChannel()">search channel</button>
+      <button (click)="Display()">Display Channel</button>
+      <div class=channel>
+        <ul *ngFor="let channel of channelArr">
+          <li>{{channel}}</li>
+        </ul>
       </div>
 
-      <p>{{foundChannel}}</p><button (click)="joinChannel()">Join</button><br/>
+    </div>
+
+
   </div>
-  <div class="right">
-      <br/>
-      <input type="text" placeholder="Enter message" [(ngModel)]="messages"/>
+  <div class="bottom">
+      <h1>Welcome...Let's chat</h1>
+
+    <div class="right">
+      <input type="text" placeholder="Enter message" [(ngModel)]="messages" />
       <button (click)="sendMessage()">Send message</button>
-  
-        <ul *ngFor="let message of allMessages">
-          <li>{{message.body}}</li>
-        </ul>
-    
-</div>
+      <button (click)="ngOnInit()">Show message</button>
+      <button (click)="ngOnInit()">Log Out</button>
+    </div>
+
+    <ul *ngFor="let message of allMessages">
+      <li>{{message.body}}</li>
+    </ul>
+
+  </div>
 </div>

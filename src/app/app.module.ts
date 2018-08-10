@@ -13,6 +13,8 @@ import {
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthnewService } from './authnew.service';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -33,14 +35,17 @@ const appRoutes: Routes = [
   { path: '',
    component: LoginComponent },
   { path: 'chatbox',   
-   component: ChatboxComponent },
+   component: ChatboxComponent,canActivate:[AuthnewService] },
+   { path: '**',   
+   component: NotfoundComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatboxComponent,
-    LoginComponent
+    LoginComponent,
+    NotfoundComponent
     
    
   ],
@@ -53,6 +58,7 @@ const appRoutes: Routes = [
 
   ],
   providers: [
+    AuthnewService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

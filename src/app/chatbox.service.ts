@@ -22,7 +22,7 @@ export class ChatboxService {
   }
   //create new channel
   addChannel():Observable<any> {
-    return this.http.post("https://chat.twilio.com/v2/Services/"+this.serviceId+"/Channels","FriendlyName=myChaBox&UniqueName=chatChannel",this.httpOpt);
+    return this.http.post("https://chat.twilio.com/v2/Services/"+this.serviceId+"/Channels","FriendlyName=enjoy&UniqueName=here",this.httpOpt);
  }
 //searching all channel in the service
 searchChannel():Observable<any>{ 
@@ -46,6 +46,9 @@ sendMessage(messages):Observable<any>{
 
 showMessages():Observable<any>{
   return this.http.get("https://chat.twilio.com/v2/Services/"+this.serviceId+"/Channels/"+this.myChannelId+"/Messages",this.httpOpt).pipe(map(data=>data));
+}
+DisplayAllChannel():Observable<any> {
+  return this.http.get('https://chat.twilio.com/v2/Services/'+this.serviceId+'/Channels', this.httpOpt);
 }
 }
 

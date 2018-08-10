@@ -28,5 +28,8 @@
   .container{
     background-color: rgb(154, 186, 255)
   }
-
+.wholepage{
+  background-color:whitesmoke;
+  width: 100%;
+}
   
