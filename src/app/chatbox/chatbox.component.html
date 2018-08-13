@@ -1,41 +1,59 @@
+<app-header></app-header>
 <div class="container">
-  <div class="left">
-    <button type="button" (click)="addService()">create service</button>
-    <br/>
-    <br>
-    <button type="button" (click)="addChannel()"> create Channel</button>
-    <br/>
-    <div id="searchdiv">
-      <input type="text" placeholder="Search channel" [(ngModel)]="channel">
-
-      <button (click)="searchChannel()">search channel</button>
-      <p>{{foundChannel}}</p>
-      <button (click)="joinChannel()">Join</button>
-      <br/>
-      <button (click)="Display()">Display Channel</button>
-      <div class=channel>
-        <ul *ngFor="let channel of channelArr">
-          <li>{{channel}}</li>
+  <div class="side-bar">
+      <ul class="nav nav-pills nav-stacked">
+        <li><b>Your channel:{{foundChannel}}</b></li>
+          <li><input type="text"  class="form-control" placeholder="Enter new Channel name..." [(ngModel)]="channelName"/>
+            <!-- <button type="button" class="btn btn-primary" (click)="addChannel()">Click to create Channel</button></li> -->
+            <button type="button" (click)="addChannel()" class="btn btn-success">
+              Add your new Channel
+              </button>
+            <li> <input  class="form-control" type="text" placeholder="Search channel..." [(ngModel)]="channel">
+            <button class="btn btn-default" (click)="searchChannel()">Search your channel</button>
+            <!-- <button (click)="joinChannel()" class="btn btn-primary">Join</button> -->
+            <button type="button" (click)="joinChannel()" class="btn btn-default btn-sm">
+            Join Channel  
+            </button>
+            
+            <br/></li>
+        </ul> 
+        <!-- <button id="createService" type="button" (click)="addService()" class="btn btn-primary">Click to create serveice</button> -->
+        
+        <button (click)="Display()" class="btn btn-success">Display all channels.</button>
+        <ul *ngFor="let displayChannel of channelArr">
+          <li >
+            <button (click)="joinDisplayChannel()"  class="btn btn-primary">Join {{displayChannel}} </button><br/>
+          </li>
         </ul>
-      </div>
 
-    </div>
+   </div>
 
 
-  </div>
-  <div class="bottom">
-      <h1>Welcome...Let's chat</h1>
-
-    <div class="right">
-      <input type="text" placeholder="Enter message" [(ngModel)]="messages" />
-      <button (click)="sendMessage()">Send message</button>
-      <button (click)="ngOnInit()">Show message</button>
-      <button (click)="ngOnInit()">Log Out</button>
-    </div>
-
-    <ul *ngFor="let message of allMessages">
-      <li>{{message.body}}</li>
-    </ul>
-
-  </div>
+  
+  <div class="message-content">
+      <section class="timeline">
+          <ul *ngFor="let message of allMessages">
+            <li >
+              <div  [ngStyle]="{'float': (message.from == this.userName)?'right':'left'}">
+                  {{message.body}}
+              </div>
+            </li>
+             
+            <!-- more list items here -->
+          </ul>
+        </section>
+        <input type="text" class="form-control" placeholder="Type your message..." [(ngModel)]="messages"/>
+        <button (click)="sendMessage()" class="btn btn-success">Send</button>
 </div>
+
+
+
+
+
+
+
+  <app-footer></app-footer>
+
+
+
+

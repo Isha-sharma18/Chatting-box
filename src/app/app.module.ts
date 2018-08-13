@@ -1,3 +1,6 @@
+import { AuthService } from './auth.service';
+import { AuthguardService } from './authguard.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,8 +16,8 @@ import {
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { NotfoundComponent } from './notfound/notfound.component';
-import { AuthnewService } from './authnew.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -33,11 +36,15 @@ export function getAuthServiceConfigs() {
 }
 const appRoutes: Routes = [
   { path: '',
-   component: LoginComponent },
+   component: LoginComponent,
+   canActivate:[AuthguardService]
+  },
   { path: 'chatbox',   
-   component: ChatboxComponent,canActivate:[AuthnewService] },
+   component: ChatboxComponent ,
+   canActivate:[AuthService]
+   },
    { path: '**',   
-   component: NotfoundComponent},
+   component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -45,7 +52,9 @@ const appRoutes: Routes = [
     AppComponent,
     ChatboxComponent,
     LoginComponent,
-    NotfoundComponent
+    PageNotFoundComponent,
+    HeaderComponent,
+    FooterComponent
     
    
   ],
@@ -58,7 +67,6 @@ const appRoutes: Routes = [
 
   ],
   providers: [
-    AuthnewService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

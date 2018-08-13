@@ -5,7 +5,6 @@ import {
   GoogleLoginProvider
 } from 'angular-6-social-login';
 import { Router } from '@angular/router';
-import { AuthnewService } from '../authnew.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +13,7 @@ import { AuthnewService } from '../authnew.service';
 })
 export class LoginComponent {
 
-  constructor( private socialAuthService: AuthService,private router:Router,private authservice:AuthnewService ) {}
+  constructor( private socialAuthService: AuthService,private router:Router ) {}
   
   public socialSignIn(socialPlatform : string) {
     let socialPlatformProvider;
@@ -26,11 +25,11 @@ export class LoginComponent {
     
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-
         console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData
         // ...
-        this.authservice.id=true;
+        sessionStorage.setItem('key',"raksahb");
+        localStorage.setItem('email',userData.email);
         this.router.navigate(['/chatbox']);
             
       }
