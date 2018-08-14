@@ -34,7 +34,9 @@
       <section class="timeline">
           <ul *ngFor="let message of allMessages">
             <li >
-              <div  [ngStyle]="{'float': (message.from == this.userName)?'right':'left'}">
+              <div  [ngStyle]="{'float': (message.from == this.userName)?'right':'left'}"
+              [ngClass]="{'alert alert-warning':(message.from != this.userName),'alert alert-success':(message.from == this.userName)}"
+              >
                   {{message.body}}
               </div>
             </li>

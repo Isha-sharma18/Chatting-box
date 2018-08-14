@@ -51,21 +51,6 @@ export class ChatboxComponent implements OnInit {
   // name = localStorage.getItem('name');
   allMessages=[];
   totalMessages: number;
-  // viewMessage() {
-  //   // console.log(this.name + "viewName");
-  //   this.chatBox.viewMessages().subscribe(res => {
-  //     this.allMessages = res.messages ;
-  //     //adding user email address to messages
-  //     this.allMessages.forEach(element => {
-  //       element.body+=('('+element.from+')')
-  //     });
-  //     // console.log(this.allMessages)
-  //   },
-  //     err => {
-  //       console.log(err);
-  //     })
-   
-  // }
 
   // Messages refreshing after 1 set
   setint=setInterval(() => {
