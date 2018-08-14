@@ -1,21 +1,27 @@
 .side-bar{
     width:25%;
-    height:85vh;
+    height:100vh;
     float: left;
     background-color:rgb(122, 49, 122);
 
 }
 .message-content{
     width:75%;
-    height:85vh;
+    height:90vh;
     float: left;
      background-color:white; 
     /* background-image: url("http://easywebplans.com/wp-content/uploads/2015/12/Free-Download-Background-Images-For-Website-Design-4.jpg"); */
 }
 .timeline{
-    overflow: scroll; 
-    height: 75vh;
+    overflow-y: scroll; 
+    overflow-x:hidden;
+    height: 90vh;
 }
+ app-footer{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
 .timeline ul li {
     list-style-type: none;
     position: relative;
@@ -25,6 +31,7 @@
     padding-top: 50px;
     background: aliceblue;
   }
+
    
   /* .timeline ul li::after {
     content: '';

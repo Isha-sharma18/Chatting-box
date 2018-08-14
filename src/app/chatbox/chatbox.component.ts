@@ -1,6 +1,7 @@
 import { ChatboxService } from './../chatbox.service';
 import { Subscriber } from '../../../node_modules/rxjs';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-chatbox',
@@ -10,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 export class ChatboxComponent implements OnInit {
   channelName;
   userName:string=localStorage.getItem("email")
-  constructor(private chatBox: ChatboxService) { }
+  constructor(private chatBox: ChatboxService,private router:Router) { }
+
+  //logout
+  logout(){
+    localStorage.clear();
+    sessionStorage.clear();
+    console.log("logout")
+    this.router.navigate(["/"]);
+  }
   // add service call here
   addService() {
     this.chatBox.setData().subscribe(res => {
@@ -108,7 +117,6 @@ export class ChatboxComponent implements OnInit {
       console.log(err);
     })
   }
-
   //display all channel
   length;
   channelArr = [];

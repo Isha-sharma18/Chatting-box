@@ -1,4 +1,3 @@
-<app-header></app-header>
 <div class="container">
   <div class="side-bar">
       <ul class="nav nav-pills nav-stacked">
@@ -25,6 +24,7 @@
             <button (click)="joinDisplayChannel()"  class="btn btn-primary">Join {{displayChannel}} </button><br/>
           </li>
         </ul>
+        <button class="btn btn-success" (click)="logout()">Logout</button>
 
    </div>
 
@@ -51,10 +51,6 @@
 
 
 
-
-
-
-  <app-footer></app-footer>
 
 
 
